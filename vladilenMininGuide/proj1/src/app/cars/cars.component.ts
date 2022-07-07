@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
-  canAddCar = false;
+  isPassiveBtn = true;
+  addCarStatus = '';
+  name = "";
 
   constructor() { 
     setTimeout(() => {
-      this.canAddCar = true;
+      this.isPassiveBtn = false;
     }, 2000);
+  }
+
+  chngName(event: string): void {
+    this.name = event;
+  }
+
+  addCar(): void {
+    this.addCarStatus = "Add new car";
   }
 
   ngOnInit(): void {

@@ -1,4 +1,10 @@
-<button [disabled]="!canAddCar" class="btn btn-primary">Add car</button>
+<button [disabled]="isPassiveBtn" (click)="addCar()" class="btn btn-primary">Add car</button>
+<p>{{addCarStatus}}</p>
 <hr>
 <app-car></app-car>
 <app-car></app-car>
+
+<hr>
+
+<input type="text" #myInp (input)="chngName(myInp.value)">
+<p>{{name}}</p>
