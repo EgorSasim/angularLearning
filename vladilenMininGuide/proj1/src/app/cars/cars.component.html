@@ -6,5 +6,9 @@
 
 <hr>
 
-<input type="text" #myInp (input)="chngName(myInp.value)">
-<p>{{name}}</p>
+<input type="text" class="form-control" placeholder="Write your name" #myInp (input)="chngName(myInp.value)">
+<p>Your name is: {{name}}</p>
+
+<hr>
+<input type="text" class="form-control" placeholder="write smth" [(ngModel)]="inputText">
+<p>{{inputText}}</p>

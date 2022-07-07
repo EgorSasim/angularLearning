@@ -10,6 +10,7 @@ export class CarsComponent implements OnInit {
   isPassiveBtn = true;
   addCarStatus = '';
   name = "";
+  inputText = "";
 
   constructor() { 
     setTimeout(() => {
