@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent implements OnInit {
 
-  constructor() { }
+  canAddCar = false;
+
+  constructor() { 
+    setTimeout(() => {
+      this.canAddCar = true;
+    }, 2000);
+  }
 
   ngOnInit(): void {
   }
