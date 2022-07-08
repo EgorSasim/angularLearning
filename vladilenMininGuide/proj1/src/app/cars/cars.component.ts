@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class CarsComponent implements OnInit {
 
   isPassiveBtn = true;
-  addCarStatus = '';
-  name = "";
-  inputText = "";
+  carName = "";
+  addCarStatus = false;
 
   constructor() { 
     setTimeout(() => {
@@ -18,12 +17,9 @@ export class CarsComponent implements OnInit {
     }, 2000);
   }
 
-  chngName(event: string): void {
-    this.name = event;
-  }
 
   addCar(): void {
-    this.addCarStatus = "Add new car";
+    this.addCarStatus = true;
   }
 
   ngOnInit(): void {

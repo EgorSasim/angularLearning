@@ -1,14 +1,12 @@
+
+<input type="text" class="form-control" [(ngModel)]="carName">
+<br>
+
 <button [disabled]="isPassiveBtn" (click)="addCar()" class="btn btn-primary">Add car</button>
-<p>{{addCarStatus}}</p>
+<p *ngIf="!addCarStatus; else addedCar">Car is not added</p>
+<ng-template #addedCar>
+    <p>Car is added</p>
+</ng-template>
 <hr>
 <app-car></app-car>
 <app-car></app-car>
-
-<hr>
-
-<input type="text" class="form-control" placeholder="Write your name" #myInp (input)="chngName(myInp.value)">
-<p>Your name is: {{name}}</p>
-
-<hr>
-<input type="text" class="form-control" placeholder="write smth" [(ngModel)]="inputText">
-<p>{{inputText}}</p>
