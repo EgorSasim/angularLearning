@@ -1,12 +1,23 @@
 
 <input type="text" class="form-control" [(ngModel)]="carName">
 <br>
+<button [disabled]="isPassiveBtn" (click)="addCar()" class="btn btn-primary">Add car</button>           
 
-<button [disabled]="isPassiveBtn" (click)="addCar()" class="btn btn-primary">Add car</button>
 <p *ngIf="!addCarStatus; else addedCar">Car is not added</p>
 <ng-template #addedCar>
     <p>Car is added</p>
 </ng-template>
 <hr>
-<app-car></app-car>
-<app-car></app-car>
+
+
+<app-car *ngFor="let car of cars"><app-car>
+
+
+<ul>
+    <li *ngFor="let el of elements">
+        <b>{{el.id}}</b>
+        <p>{{el.name}}</p>
+    </li>
+</ul>
+        
+

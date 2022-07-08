@@ -10,6 +10,8 @@ export class CarsComponent implements OnInit {
   isPassiveBtn = true;
   carName = "";
   addCarStatus = false;
+  cars = ['Ford', 'Kia', 'Toyota'];
+  elements = [{id: 45, name: 'item1'}, {id: 345, name: 'item2'}, {id: 923, name: 'item3'}];
 
   constructor() { 
     setTimeout(() => {
@@ -20,6 +22,8 @@ export class CarsComponent implements OnInit {
 
   addCar(): void {
     this.addCarStatus = true;
+    this.cars.push(this.carName);
+    this.carName = "";
   }
 
   ngOnInit(): void {
