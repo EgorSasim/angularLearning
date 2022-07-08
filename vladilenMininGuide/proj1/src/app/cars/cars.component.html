@@ -10,14 +10,18 @@
 <hr>
 
 
-<app-car *ngFor="let car of cars"><app-car>
+<app-car *ngFor="let car of cars"></app-car>
 
 
 <ul>
-    <li *ngFor="let el of elements">
+    <li *ngFor="let el of elements; let num = index">
+        <i>{{num + 1}}: </i>
+        <br>
         <b>{{el.id}}</b>
         <p>{{el.name}}</p>
     </li>
 </ul>
         
+
+
 
