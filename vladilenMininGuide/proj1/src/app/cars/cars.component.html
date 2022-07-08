@@ -10,18 +10,11 @@
 <hr>
 
 
-<app-car *ngFor="let car of cars"></app-car>
-
-
 <ul>
-    <li *ngFor="let el of elements; let num = index">
-        <i>{{num + 1}}: </i>
-        <br>
-        <b>{{el.id}}</b>
-        <p>{{el.name}}</p>
+    <li *ngFor="let car of cars; let i = index">
+        <div 
+            [ngStyle]="{color: (i + 1) % 2 === 0 ? 'red' : 'aqua', 'backgroundColor': 'black'}"
+            [ngClass]="{'big-text' : setBigCarText(car)}"
+        ><b>{{i+1}}:</b>  {{car}}</div>
     </li>
 </ul>
-        
-
-
-

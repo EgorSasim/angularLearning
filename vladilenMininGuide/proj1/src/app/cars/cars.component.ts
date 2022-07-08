@@ -10,8 +10,7 @@ export class CarsComponent implements OnInit {
   isPassiveBtn = true;
   carName = "";
   addCarStatus = false;
-  cars = ['Ford', 'Kia', 'Toyota'];
-  elements = [{id: 45, name: 'item1'}, {id: 345, name: 'item2'}, {id: 923, name: 'item3'}];
+  cars = ['Ford', 'Kia', 'Toyota', "Pegeot", "Mazda", "Porse"];
 
   constructor() { 
     setTimeout(() => {
@@ -24,6 +23,10 @@ export class CarsComponent implements OnInit {
     this.addCarStatus = true;
     this.cars.push(this.carName);
     this.carName = "";
+  }
+
+  setBigCarText(car : string): boolean{
+    return car.length > 4 ? true : false;
   }
 
   ngOnInit(): void {
