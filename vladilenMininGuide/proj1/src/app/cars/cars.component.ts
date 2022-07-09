@@ -1,35 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
 })
-export class CarsComponent implements OnInit {
 
-  isPassiveBtn = true;
-  carName = "";
-  addCarStatus = false;
-  cars = ['Ford', 'Kia', 'Toyota', "Pegeot", "Mazda", "Porse"];
+export class CarsComponent {
+  carName: string = "";
+  carYear: number = 2017;
 
-  constructor() { 
-    setTimeout(() => {
-      this.isPassiveBtn = false;
-    }, 2000);
+  cars: {name: string, year: number}[] = [{
+    name: 'Ford',
+    year: 2015
+  }, {
+    name: 'Mazda',
+    year: 2010,
+  }, {
+    name: 'Audi',
+    year: 2013,
   }
-
+];
 
   addCar(): void {
-    this.addCarStatus = true;
-    this.cars.push(this.carName);
+    this.cars.push({name: this.carName, year: this.carYear});
     this.carName = "";
+    this.carYear = 2017;
   }
 
-  setBigCarText(car : string): boolean{
-    return car.length > 4 ? true : false;
-  }
-
-  ngOnInit(): void {
-  }
-
+  constructor() { }
 }

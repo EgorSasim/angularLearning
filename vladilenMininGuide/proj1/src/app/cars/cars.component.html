@@ -1,20 +1,7 @@
-
 <input type="text" class="form-control" [(ngModel)]="carName">
-<br>
-<button [disabled]="isPassiveBtn" (click)="addCar()" class="btn btn-primary">Add car</button>           
+<input type="text" class="form-control" [(ngModel)]="carYear">
+<button class="btn btn-primary" (click)="addCar()">Add car</button>
 
-<p *ngIf="!addCarStatus; else addedCar">Car is not added</p>
-<ng-template #addedCar>
-    <p>Car is added</p>
-</ng-template>
 <hr>
 
-
-<ul>
-    <li *ngFor="let car of cars; let i = index">
-        <div 
-            [ngStyle]="{color: (i + 1) % 2 === 0 ? 'red' : 'aqua', 'backgroundColor': 'black'}"
-            [ngClass]="{'big-text' : setBigCarText(car)}"
-        ><b>{{i+1}}:</b>  {{car}}</div>
-    </li>
-</ul>
+<app-car *ngFor="let car of cars" [carItem]="car"></app-car>
