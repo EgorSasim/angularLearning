@@ -18,8 +18,8 @@ export class AddCarComponent implements OnInit {
   }
 
 
-  addCar(carNameInput: HTMLInputElement): void {
-    this.onAddCar.emit({name: carNameInput.value, year: +this.carYearInput?.nativeElement.value});
+  addCar(): void {
+    this.onAddCar.emit({name: this.carName, year: this.carYear});
     this.carName = "";
     this.carYear = 2017;
   }

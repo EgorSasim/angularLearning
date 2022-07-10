@@ -2,6 +2,15 @@
 <p>Cars adding form</p>
 <hr>
 
+<div class="lsit-group">
+    <app-car class="list-group-item" *ngFor="let car of cars" [carItem]="car">
+        <h4 #carHeading class="list-group-item-heading">
+            {{car?.name}}
+        </h4>
+        <p class="list-goup-item-text">Year: {{car?.year}}</p>
+        
+    </app-car>
+</div>
+
 <app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
 <hr>
-<app-car *ngFor="let car of cars" [carItem]="car"></app-car>
