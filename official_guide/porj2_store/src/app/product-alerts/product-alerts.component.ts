@@ -10,7 +10,7 @@ import { Product } from '../products';
 export class ProductAlertsComponent implements OnInit {
 
   @Input() product: Product | undefined;
-  @Output() notify = new EventEmitter;
+  @Output() notify = new EventEmitter
   constructor() { }
 
   ngOnInit(): void {
