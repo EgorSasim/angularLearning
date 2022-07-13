@@ -5,7 +5,8 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 
-import "./page1(observables)";
+// import "./page1-2(observables)";
+import "./page3(operators)";
 
 if (environment.production) {
   enableProdMode();
