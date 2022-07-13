@@ -1,16 +1,31 @@
-import { Observable } from "rxjs";
+import { debounce, debounceTime, filter, Observable, map, distinctUntilChanged } from "rxjs";
 
 
-const search$ = new Observable(observer => {
-    console.log("Observable start: ")
-    observer.next(1);
-    observer.next(2);
-    observer.next(3);
-    console.log("Observable end");
+const search$ = new Observable<Event>(observer => {
+    const search = document.getElementById('search');
+
+    if (!search) {
+        observer.error("Element not found!!!");
+        return;
+    }
+
+    search?.addEventListener('input', event => {
+        observer.next(event);
+    })
 });
 
-console.log("Start subscribe");
-search$.subscribe(value => {
-    console.log(value);
+search$.
+pipe(
+    map(event => {
+        return (event.target as HTMLInputElement).value;
+    }),
+    debounceTime(500),
+    distinctUntilChanged(),
+)
+.subscribe({
+    next: event => {
+        console.log(event);
+    },
+    error: err => console.warn(err),
+    complete: () => console.log("Event ends!!!"),
 });
-console.log("End subscribe");
